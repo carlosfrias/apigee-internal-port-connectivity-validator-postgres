@@ -3,7 +3,7 @@
 - name: Postgres Qpid Mgmt port connectivity status
   wait_for:
     port: '{{ pg_int_mgmt_port }}'
-    host: '{{ local_address }}'
+    host: '{{ private_address }}'
     timeout: 1
   register: pg_int_mgmt_port_status
   ignore_errors: yes
@@ -11,7 +11,7 @@
 - name: Postgres Data port connectivity status
   wait_for:
     port: '{{ pg_db_port }}'
-    host: '{{ local_address }}'
+    host: '{{ private_address }}'
     timeout: 1
   register: mp_router_port_status
   ignore_errors: yes
@@ -19,7 +19,7 @@
 - name: Internal Postgres JMX port connectivity status
   wait_for:
     port: '{{ pg_jmx_port }}'
-    host: '{{ local_address}}'
+    host: '{{ private_address}}'
     timeout: 1
   register: pg_jmx_port_status
   ignore_errors: yes
@@ -27,7 +27,7 @@
 - name: Postgres Mgmt port connectivity status
   wait_for:
     port: '{{ pg_ext_mgmt_port }}'
-    host: '{{ local_address}}'
+    host: '{{ private_address}}'
     timeout: 1
   register: pg_ext_mgmt_port_status
   ignore_errors: yes
